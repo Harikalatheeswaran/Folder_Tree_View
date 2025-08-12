@@ -16,8 +16,8 @@ Features:
 Dependencies:
 - rich (pip install rich)
 
-Author: [Your Name]
-Version: 2.2
+Author: Harikalatheeswaran
+Version: 8
 """
 
 import os
@@ -152,4 +152,5 @@ if __name__ == "__main__":
     console.print(f"📦 Total items: [yellow]{folder_count + file_count}[/yellow]\n")
     total_size_bytes = get_total_size(root_dir)
     console.print(f"[bold cyan]Total size:[/bold cyan] {human_readable_size(total_size_bytes)} ({total_size_bytes} bytes)\n\n\n")
+
 
