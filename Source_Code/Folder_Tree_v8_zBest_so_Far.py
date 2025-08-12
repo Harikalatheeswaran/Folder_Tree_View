@@ -75,9 +75,7 @@ console = Console()
 # Counters
 folder_count = 0
 file_count = 0
-
-import os
-
+# ________________________________________________________________________________________________________________________________________________
 def get_total_size(start_path):
     """Return total size in bytes of all files under start_path."""
     total_size = 0
@@ -87,14 +85,14 @@ def get_total_size(start_path):
             if os.path.isfile(fp):
                 total_size += os.path.getsize(fp)
     return total_size
-
+# ________________________________________________________________________________________________________________________________________________
 def human_readable_size(size_bytes):
     """Convert bytes to human-readable format."""
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
         if size_bytes < 1024:
             return f"{size_bytes:.2f} {unit}"
         size_bytes /= 1024
-
+# ________________________________________________________________________________________________________________________________________________
 def choose_directory():
     """Prompt user to choose a folder, default to current dir if none selected."""
     root = tk.Tk()
@@ -103,12 +101,12 @@ def choose_directory():
     input()
     selected_dir = filedialog.askdirectory()
     return selected_dir if selected_dir else os.getcwd()
-
+# ________________________________________________________________________________________________________________________________________________
 def get_file_color(filename):
     """Return color based on file extension, default to white."""
     ext = os.path.splitext(filename)[1].lower()
     return FILE_TYPE_COLORS.get(ext, "white")
-
+# ________________________________________________________________________________________________________________________________________________
 def print_tree(dir_path, prefix="", depth=0):
     """Recursively print the directory tree with depth-based folder and file coloring."""
     global folder_count, file_count
@@ -136,7 +134,7 @@ def print_tree(dir_path, prefix="", depth=0):
         if entry.is_dir():
             extension = "│   " if pointer == "├──" else "    "
             print_tree(entry.path, prefix + extension, depth + 1)
-
+# ________________________________________________________________________________________________________________________________________________
 if __name__ == "__main__":
     root_dir = choose_directory()
     root_name = os.path.basename(root_dir) or root_dir
@@ -152,5 +150,6 @@ if __name__ == "__main__":
     console.print(f"📦 Total items: [yellow]{folder_count + file_count}[/yellow]\n")
     total_size_bytes = get_total_size(root_dir)
     console.print(f"[bold cyan]Total size:[/bold cyan] {human_readable_size(total_size_bytes)} ({total_size_bytes} bytes)\n\n\n")
+
 
 
