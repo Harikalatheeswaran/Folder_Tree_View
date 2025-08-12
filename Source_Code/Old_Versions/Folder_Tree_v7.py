@@ -144,8 +144,8 @@ Features:
 Dependencies:
 - rich (pip install rich)
 
-Author: [Your Name]
-Version: 2.1
+Author: Harikalatheeswaran
+Version: 7
 """
 
 import os
@@ -257,3 +257,4 @@ if __name__ == "__main__":
     console.print(f"📂 [cyan]{folder_count}[/cyan] folders")
     console.print(f"📄 [magenta]{file_count}[/magenta] files")
     console.print(f"📦 Total items: [yellow]{folder_count + file_count}[/yellow]\n\n\n")
+
